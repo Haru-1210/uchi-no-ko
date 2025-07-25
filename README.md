@@ -1,24 +1,78 @@
-# README
+# うちのこ（Uchi no Ko）🐾
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ概要
 
-Things you may want to cover:
+「うちのこ」は、大切なペットの写真や動画をアルバムにまとめて保管・整理し、家族や親しい人と安心して共有できるアプリケーションです。  
+SNSでは流れてしまいがちな日常の一コマも、アプリ内で**しっかり記録・振り返る**ことができます。
 
-* Ruby version
+---
 
-* System dependencies
+## 主な機能（基本機能）
 
-* Configuration
+- ユーザー登録 / ログイン / ログアウト（Devise）
+- 写真投稿・動画投稿（ActiveStorage）
+- アルバムの作成・編集・削除
+- 日付データの登録（投稿日や思い出の日付など）
+- タグ入力による分類
+- タイトル・説明文の記載
+- コメント投稿・閲覧
 
-* Database creation
+---
 
-* Database initialization
+## 今後の追加予定機能
 
-* How to run the test suite
+- ✅ **一括ダウンロード機能**
+- ✅ **アルバムごとの公開用パスワード設定**
+- ✅ **SNS共有機能（Instagram・Xなどにリンク）**
 
-* Services (job queues, cache servers, search engines, etc.)
+---
 
-* Deployment instructions
+## 使用技術
 
-* ...
+## 使用技術
+
+| 分類         | 使用技術                     |
+|--------------|------------------------------|
+| 言語         | Ruby / JavaScript            |
+| フレームワーク | Ruby on Rails                |
+| フロントエンド | HTML / CSS / Bootstrap       |
+| データベース | MySQL                        |
+| 認証機能     | Devise                       |
+| ファイル管理 | ActiveStorage                |
+| デプロイ     | Render                       |
+
+---
+
+## アプリ開発の背景
+
+飼い猫との日々の写真や動画を、SNSではなく**もっと安心・丁寧に残したい**という思いから開発をスタートしました。  
+写真に**タグや日付、説明**を添えて保存し、家族とだけ共有できる、「ちょうどいい記録アプリ」を目指しています。
+
+---
+
+## セットアップ手順（開発環境）
+
+```bash
+$ git clone https://github.com/Haru-1210/uchi-no-ko.git
+$ cd uchi-no-ko
+$ bundle install
+$ yarn install
+$ rails db:create
+$ rails db:migrate
+$ rails s
+
+---
+
+## 設計ドキュメント
+
+本アプリケーションのデータベース設計やER図については、以下の資料をご覧ください。
+
+- 📄 [テーブル設計（table_design.md）](docs/table_design.md)  
+　各テーブルのカラム、型、制約、アソシエーションなどを記載しています。
+
+- 🧩 [ER図（draw.io形式）](docs/uchi_no_ko_erd.dio)  
+　draw.ioで編集可能なER図ファイルです。
+
+- 🖼️ [ER図（画像）](docs/uchi_no_ko_erd.png)  
+　視覚的に把握しやすいPNG画像のER図です。
+
