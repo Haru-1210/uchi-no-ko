@@ -1,5 +1,21 @@
 # テーブル設計（Uchi no Ko）
 
+## テーブル一覧
+
+| テーブル名     | 用途                         |
+|----------------|------------------------------|
+| users          | ユーザー情報                 |
+| albums         | アルバム情報                 |
+| posts          | 写真・動画の投稿情報         |
+| tags           | タグ情報                     |
+| post_tags      | 投稿とタグの中間テーブル     |
+| comments       | コメント情報                 |
+| access_codes   | アルバムごとの公開用パスワード |
+| sns_links      | SNS共有リンク                |
+| downloads      | 一括ダウンロード履歴         |
+
+---
+
 ## users テーブル
 
 | Column             | Type   | Options                   |
@@ -41,13 +57,15 @@
 | date       | date       | null: false                    |
 | album      | references | null: false, foreign_key: true |
 
+※画像・動画ファイルは ActiveStorage を利用  
+→ `has_one_attached :media`
+
 ### Association
 - belongs_to :album  
 - has_many :comments  
 - has_many :post_tags  
 - has_many :tags, through: :post_tags
 - has_many :sns_links
-- has_one_attached :media
 
 ---
 
@@ -92,10 +110,10 @@
 
 ## access_codes テーブル（公開用パスワード）
 
-| Column      | Type       | Options                        |
-|-------------|------------|--------------------------------|
-| code        | string     | null: false                    |
-| album       | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+|--------|------------|--------------------------------|
+| code   | string     | null: false                    |
+| album  | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :album
@@ -104,11 +122,11 @@
 
 ## sns_links テーブル（SNS共有）
 
-| Column    | Type       | Options                        |
-|-----------|------------|--------------------------------|
-| platform  | string     | null: false                    |
-| url       | string     | null: false                    |
-| post      | references | null: false, foreign_key: true |
+| Column   | Type       | Options                        |
+|----------|------------|--------------------------------|
+| platform | string     | null: false                    |
+| url      | string     | null: false                    |
+| post     | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :post
