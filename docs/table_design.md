@@ -11,7 +11,6 @@
 | post_tags      | 投稿とタグの中間テーブル     |
 | comments       | コメント情報                 |
 | access_codes   | アルバムごとの公開用パスワード |
-| sns_links      | SNS共有リンク                |
 | downloads      | 一括ダウンロード履歴         |
 
 ---
@@ -37,6 +36,7 @@
 | Column | Type       | Options                        |
 |--------|------------|--------------------------------|
 | title  | string     | null: false                    |
+| url    | string     | null: false                    |
 | user   | references | null: false, foreign_key: true |
 
 ### Association
@@ -55,6 +55,7 @@
 | caption    | text       |                                |
 | media_type | string     | null: false                    |
 | date       | date       | null: false                    |
+| url        | string     | null: false                    |
 | album      | references | null: false, foreign_key: true |
 
 ※画像・動画ファイルは ActiveStorage を利用  
